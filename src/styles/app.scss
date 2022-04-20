@@ -1,0 +1,56 @@
+.list {
+  padding: 2rem;
+
+  .add-address-wrapper {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+
+    button {
+      width: 4rem;
+      height: 4rem;
+      font-size: 3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.add {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 2rem;
+
+  .ant-form {
+    width: 100%;
+
+    .title {
+      text-align: center;
+    }
+
+    .address-block {
+      p {
+        margin-bottom: 0.5rem;
+      }
+
+      .address-input {
+        width: 100%;
+      }
+    }
+
+    .address-button {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.actions-block {
+  p {
+    cursor: pointer;
+  }
+}
