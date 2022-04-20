@@ -1,6 +1,16 @@
 .list {
   padding: 2rem;
 
+  .address-header {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+
+    .ant-input-group-wrapper {
+      width: 25%;
+    }
+  }
+
   .add-address-wrapper {
     position: fixed;
     bottom: 2rem;

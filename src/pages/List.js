@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Table, Button, Modal, Empty } from 'antd';
+import { Table, Button, Modal, Empty, Input } from 'antd';
 import { deleteAddress } from '../redux/actions/addressActions';
+
+const { Search } = Input;
 
 const List = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { list } = useSelector(state => state.addresses);
   const [addresses, setAddresses] = useState(list);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     setAddresses(list);
@@ -55,13 +58,24 @@ const List = () => {
     },
   ];
 
+  const filteredAddresses = addresses.filter(cur =>
+    [cur.name.toLowerCase(), cur.email.toLowerCase()].some(el => el.includes(search.toLowerCase()))
+  );
+
   return (
     <div className="list">
-      <h1>Address Book</h1>
+      <div className="address-header">
+        <h1>Address Book</h1>
+        <Search
+          placeholder="Search with Name/Email"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+        />
+      </div>
       <Table
         bordered
         rowKey="id"
-        dataSource={addresses}
+        dataSource={filteredAddresses}
         columns={columns}
         pagination={false}
         locale={{
